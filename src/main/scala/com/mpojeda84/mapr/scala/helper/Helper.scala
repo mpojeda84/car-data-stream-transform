@@ -1,5 +1,7 @@
 package com.mpojeda84.mapr.scala.helper
 
+import java.time.LocalDate
+
 import com.mpojeda84.mapr.scala.model.CarDataInstant
 
 object Helper {
@@ -30,6 +32,21 @@ object Helper {
       values(16)
     )
 
+  }
+
+
+  def valueIfInLastXDays = (value: String, date: String, days: Int) => {
+
+    if(date.contains(" ")) {
+      val today = LocalDate.now()
+      val other = LocalDate.parse(date.split(" ")(0))
+
+      if (today.minusDays(days).isBefore(other))
+        value
+      else
+        "0"
+    } else
+      "0"
   }
 
 }

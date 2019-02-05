@@ -18,7 +18,7 @@ object Configuration {
   private val parser = new scopt.OptionParser[Configuration]("App Name") {
     head("App Name")
 
-    opt[String]('c', "checkpoint")
+    opt[String]('h', "checkpoint")
       .action((t, config) => config.copy(checkpoint = t))
       .maxOccurs(1)
       .text("Checkpoint Location")
