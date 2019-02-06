@@ -1,6 +1,6 @@
 package com.mpojeda84.mapr.scala.config
 
-case class Configuration(checkpoint: String, topic: String, transformed: String, community: String)
+case class Configuration(checkpoint: String, topic: String, transformed: String)
 
 object Configuration {
 
@@ -11,8 +11,7 @@ object Configuration {
   object DefaultConfiguration extends Configuration(
     "path/to/json",
     "/path/to/stream:topic",
-    "/obd/car-data-transformed",
-    "/user/mapr/tables/car-community-values"
+    "/obd/car-data-transformed"
   )
 
   private val parser = new scopt.OptionParser[Configuration]("App Name") {
@@ -32,8 +31,5 @@ object Configuration {
       .action((s, config) => config.copy(topic = s))
       .text("Topic where Kafka Producer is writing to")
 
-    opt[String]('c', "community")
-      .action((s, config) => config.copy(community = s))
-      .text("Community table")
   }
 }

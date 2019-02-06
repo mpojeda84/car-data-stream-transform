@@ -1,7 +1,7 @@
 package com.mpojeda84.mapr.scala.model
 
 case class CarDataInstant(
-                           _id: String,
+                           producerId: String,
 
                            vin: String,
                            make: String,
@@ -19,5 +19,7 @@ case class CarDataInstant(
                            altitude: String,
                            throttle: String,
                            timeSinceEngineStart: String,
-                           ambientAirTemperature: String
+                           ambientAirTemperature: String,
+                           odometer: String,
+                           target: String
                          )

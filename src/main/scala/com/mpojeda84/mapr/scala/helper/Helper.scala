@@ -9,11 +9,10 @@ object Helper {
   def toJsonWithId(csvLine: String): CarDataInstant = {
     val values = csvLine.split(",").map(_.trim)
 
-    val id = values(0) + values(4) + values(5);
+    val id = values(1) + values(5) + values(6);
 
     CarDataInstant(
       id,
-      values(0),
       values(1),
       values(2),
       values(3),
@@ -29,7 +28,10 @@ object Helper {
       values(13),
       values(14),
       values(15),
-      values(16)
+      values(16),
+      values(17),
+      values(18),
+      values(19)
     )
 
   }
@@ -38,7 +40,8 @@ object Helper {
   def valueIfInLastXDays = (value: String, date: String, days: Int) => {
 
     if(date.contains(" ")) {
-      val today = LocalDate.now()
+      //val today = LocalDate.now()
+      val today = LocalDate.parse("2019-02-01 0:17:08".split(" ")(0))
       val other = LocalDate.parse(date.split(" ")(0))
 
       if (today.minusDays(days).isBefore(other))
