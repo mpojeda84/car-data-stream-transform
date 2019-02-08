@@ -2,6 +2,7 @@ package com.mpojeda84.mapr.scala.helper
 
 import java.time.LocalDate
 
+import com.mpojeda84.mapr.scala.config.Configuration.DefaultConfiguration
 import com.mpojeda84.mapr.scala.model.CarDataInstant
 
 object Helper {
@@ -41,7 +42,7 @@ object Helper {
 
     if(date.contains(" ")) {
       //val today = LocalDate.now()
-      val today = LocalDate.parse("2019-01-28 0:17:08".split(" ")(0))
+      val today = LocalDate.parse(DefaultConfiguration.dateOffset.split(" ")(0))
       val other = LocalDate.parse(date.split(" ")(0))
 
       if (today.minusDays(days).isBefore(other))
