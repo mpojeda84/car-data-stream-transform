@@ -12,7 +12,7 @@ object Configuration {
     "path/to/json",
     "/path/to/stream:topic",
     "/obd/car-data-transformed",
-    "2019-01-28 0:17:08"
+    "2019-02-13 0:55:08"
   )
 
   private val parser = new scopt.OptionParser[Configuration]("App Name") {
